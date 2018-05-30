@@ -1,4 +1,5 @@
 import java.util.*;
+//Time complexity is O(n)
 class TwoSum1{
 	public static void main(String args[]){
 		int nums[] = {2,7,11,15};
