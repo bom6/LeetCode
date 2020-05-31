@@ -16,7 +16,8 @@ Although the above answer is in lexicographical order, your answer could be in a
 class Solution {
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<String>();
-
+        if(digits == null || digits.length() == 0)
+            return result;
         HashMap<Character, char[]> map = new HashMap<Character, char[]>();
         map.put('2', new char[] {'a', 'b', 'c'});
         map.put('2', new char[] {'a', 'b', 'c'});
