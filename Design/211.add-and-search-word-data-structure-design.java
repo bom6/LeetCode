@@ -2,7 +2,7 @@ class WordDictionary {
 
     class TrieNode {
         Map<Character, TrieNode> children;
-        boolean end;
+        boolean endWord;
         TrieNode(){
             children = new HashMap<Character, TrieNode>();
         }
@@ -20,13 +20,15 @@ class WordDictionary {
         TrieNode node = root;
         for(int i = 0; i < word.length(); i++) {
             Character ch = word.charAt(i);
-            if(node.containsKey(ch)) {
+            if(node.children.containsKey(ch)) {
                 node = node.children.get(ch);
             } else {
                 TrieNode newNode = new TrieNode();
                 node.children.put(ch, newNode);
+                node = newNode;
             }
         }
+        node.endWord = true;
     }
     
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
@@ -37,7 +39,7 @@ class WordDictionary {
     private boolean search(String word, TrieNode node) {
         for(int i = 0; i < word.length(); i++) {
             Character ch = word.charAt(i);
-            if(!node.containsKey(ch)) {
+            if(!node.children.containsKey(ch)) {
                 if(ch == '.') {
                     for (Character key : node.children.keySet()) {
                         if (search(word.substring(i+1, word.length()), node.children.get(key))) {
