@@ -1,4 +1,4 @@
-#* LeetCode
+# LeetCode
 1. Two Sum - 1
 	Category: Array
 	Difficulty - Easy
